@@ -1,0 +1,83 @@
+PARKINSON'S SCREENING PROJECT
+RANDOM FOREST TRAINING — SETUP GUIDE
+
+A. WHERE THE FILES GO
+
+Copy training/train_models.py into your existing project:
+Parkinsons_project/training/train_models.py
+
+Copy requirements.txt into the root of your existing project:
+Parkinsons_project/requirements.txt
+
+Do NOT replace or move your datasets.
+
+B. EXPECTED DATASET FOLDERS
+
+datasets/
+  spiral/
+    training/healthy/
+    training/parkinsons/
+    testing/healthy/
+    testing/parkinsons/
+  wave/
+    training/healthy/
+    training/parkinsons/
+    testing/healthy/
+    testing/parkinsons/
+
+C. INSTALL LIBRARIES
+
+Open the Parkinsons_project folder in VS Code.
+Open Terminal > New Terminal.
+Run:
+
+python -m pip install -r requirements.txt
+
+If Windows uses the Python launcher instead, try:
+
+py -m pip install -r requirements.txt
+
+D. RUN TRAINING
+
+From the project root, run:
+
+python training/train_models.py
+
+The script trains two separate Random Forest classifiers:
+- spiral_random_forest.joblib
+- wave_random_forest.joblib
+
+It uses grayscale images resized to 200 x 200, HOG feature extraction,
+and GridSearchCV with stratified 5-fold cross-validation on training data only.
+The separate testing folders are held back until final evaluation.
+
+E. OUTPUTS
+
+Models:
+  models/spiral_random_forest.joblib
+  models/wave_random_forest.joblib
+
+Reports:
+  documentation/model_evaluation/spiral_evaluation.json
+  documentation/model_evaluation/wave_evaluation.json
+  documentation/model_evaluation/training_summary.json
+
+F. IMPORTANT LIMITATIONS
+
+- The current dataset is small: 36 training and 15 testing images per class
+  for each drawing type.
+- Results will be uncertain; test metrics can change substantially with only
+  15 images per class.
+- Keep the testing folders untouched during feature/model selection.
+- The script checks the given folder layout but cannot verify participant IDs.
+  If participant IDs are available, confirm participant-level separation.
+- Peer review of a dataset's associated paper does not automatically establish
+  that the split is participant-independent or that the model is clinically valid.
+- This project is an experimental academic screening prototype, not a medical
+  diagnosis. Do not present Random Forest output as an individual's probability
+  of having Parkinson's disease without calibration and clinical validation.
+
+G. IF AN ERROR OCCURS
+
+Do not randomly rename folders or change the script. Copy the complete error
+message from the VS Code terminal and share it so the cause can be identified.

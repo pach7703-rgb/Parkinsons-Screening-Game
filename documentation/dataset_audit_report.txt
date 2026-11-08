@@ -1,0 +1,49 @@
+PARKINSON'S SCREENING PROJECT — DATASET AUDIT
+====================================================
+Project: C:\Users\PRACHI\OneDrive\Desktop\SJEC\SEM 3\PBL\Parksinson's_project
+Datasets: C:\Users\PRACHI\OneDrive\Desktop\SJEC\SEM 3\PBL\Parksinson's_project\datasets
+
+
+[SPIRAL]
+  training:
+    healthy: 36 image(s)
+      Formats: .png=36
+    parkinsons: 36 image(s)
+      Formats: .png=36
+  Total training: 72
+  testing:
+    healthy: 15 image(s)
+      Formats: .png=15
+    parkinsons: 15 image(s)
+      Formats: .png=15
+  Total testing: 30
+  Total spiral: 102
+
+[WAVE]
+  training:
+    healthy: 36 image(s)
+      Formats: .png=36
+    parkinsons: 36 image(s)
+      Formats: .png=36
+  Total training: 72
+  testing:
+    healthy: 15 image(s)
+      Formats: .png=15
+    parkinsons: 15 image(s)
+      Formats: .png=15
+  Total testing: 30
+  Total wave: 102
+
+[IDENTICAL FILE CHECK ACROSS TRAINING/TESTING]
+No byte-identical files found across the two splits.
+
+[EXPECTED FOLDERS]
+All expected class/split folders exist.
+
+Total images found: 204
+
+IMPORTANT: This check cannot establish participant-level separation.
+If multiple drawings belong to one participant, all that participant's
+drawings must remain in the same split to prevent data leakage.
+This audit does not establish clinical validity; the project is an
+experimental screening prototype, not a diagnostic tool.
